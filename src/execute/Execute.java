@@ -2,7 +2,7 @@ package execute;
 
 import no_touch.DS_Sort_i;
 import no_touch.RandomGenerater;
-import sorting_algo.BubbleSort;
+import sorting_algo.*;
 
 public class Execute {
 	private static RandomGenerater rg;
@@ -10,7 +10,7 @@ public class Execute {
 		try {
 			rg=new RandomGenerater(); 
 			DS_Sort_i[] sort_algo=new DS_Sort_i[]{
-					new BubbleSort()
+					new ShellSort1(),new ShellSort2(),new ShellSort3(),new QuickSort(), new RecursiveMergeSort()
 					}; //... 구현하고 추가하셈 예) {new BubbleSort(),new SelectionSort()....}
 			run(sort_algo);
 		} catch (Exception e) {
@@ -35,9 +35,10 @@ public class Execute {
 				for(int cases=0; cases<20; cases++){
 					int[] arr=rg.getRandom(type, size);
 					for(int currentAlgo=0; currentAlgo<currentAlgoReadyNum; currentAlgo++){
-						long start=System.currentTimeMillis();
-						int[] result=sorting[currentAlgo].sort(arr);
-						time[type-1][size-1][currentAlgo]+=System.currentTimeMillis()-start;
+						int[] tempArr=arr;
+						long start=System.nanoTime();
+						int[] result=sorting[currentAlgo].sort(tempArr);
+						time[type-1][size-1][currentAlgo]+=System.nanoTime()-start;
 						if(!isSorted(result)){
 							System.out.println("--------------------------------------");
 							System.out.println("/////////sorting not done...//////////");
@@ -48,7 +49,7 @@ public class Execute {
 				}
 				for(int currentAlgo=0; currentAlgo<currentAlgoReadyNum; currentAlgo++){
 					time[type-1][size-1][currentAlgo]/=20;
-					System.out.println("type "+type+", size: "+1000*(int)(Math.pow(10, size))+", Algorithm num."+currentAlgo+" : "+time[type-1][size-1][currentAlgo]+"ms");
+					System.out.println("type "+type+", size: "+1000*(int)(Math.pow(10, size))+", Algorithm num."+currentAlgo+" : "+time[type-1][size-1][currentAlgo]+"ns");
 				}
 			}
 		}
@@ -58,9 +59,10 @@ public class Execute {
 			for(int size=1; size<4; size++){
 				int[] arr=rg.getRandom(type, size);
 				for(int currentAlgo=0; currentAlgo<currentAlgoReadyNum; currentAlgo++){
-					long start=System.currentTimeMillis();
-					int[] result=sorting[currentAlgo].sort(arr);
-					time[type-1][size-1][currentAlgo]+=System.currentTimeMillis()-start;
+					int[] tempArr=arr;
+					long start=System.nanoTime();
+					int[] result=sorting[currentAlgo].sort(tempArr);
+					time[type-1][size-1][currentAlgo]+=System.nanoTime()-start;
 					if(!isSorted(result)){
 						System.out.println("--------------------------------------");
 						System.out.println("/////////sorting not done...//////////");
@@ -70,11 +72,10 @@ public class Execute {
 				}
 				
 				for(int currentAlgo=0; currentAlgo<currentAlgoReadyNum; currentAlgo++){
-					time[type-1][size-1][currentAlgo]/=20;
 					if(type!=5)
-						System.out.println("type "+type+", size: "+1000*(Math.pow(10, size))+", Algorithm num."+currentAlgo+" : "+time[type-1][size-1][currentAlgo]+"ms");
+						System.out.println("type "+type+", size: "+1000*(Math.pow(10, size))+", Algorithm num."+currentAlgo+" : "+time[type-1][size-1][currentAlgo]+"ns");
 					else 
-						System.out.println("type "+type+", size: "+(int)(1000*(Math.pow(10, size))-1)+", Algorithm num."+currentAlgo+" : "+time[type-1][size-1][currentAlgo]+"ms");
+						System.out.println("type "+type+", size: "+(int)(1000*(Math.pow(10, size))-1)+", Algorithm num."+currentAlgo+" : "+time[type-1][size-1][currentAlgo]+"ns");
 				}
 			}
 		}
