@@ -9,6 +9,7 @@ public class HeapSort extends DS_Sort_e implements DS_Sort_i {
     private static int left;
     private static int right;
     private static int largest;
+    @Override
 	public int[] sort(int[] array){
 		heapSort(array);
 		return array;
