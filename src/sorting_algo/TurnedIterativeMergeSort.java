@@ -1,25 +1,35 @@
 package sorting_algo;
 
-public class TurnedIterativeMergeSort {
-	private void bubbleSort(int[] arr, int low, int high){
-		if (arr == null || arr.length == 0)
-			return;
- 
-		if (low >= high)
-			return;
-		
-		int length = arr.length;
-		
-		 for(int i=0; i<length; i++){
-			   for(int j=0; j<(length-i); j++){ // 비교를 하나씩 감소 시키기 위해서 6-i 번 째 까지 해줌
-			    if(arr[j] > arr[j+1])	swap(arr,j,j+1);
-			    }
-			   }
-		
-	}
+import no_touch.DS_Sort_e;
+import no_touch.DS_Sort_i;
 
-	public int[] sort(int[] array) {
-		bubbleSort(array, 0, array.length-1);
+public class TurnedIterativeMergeSort extends DS_Sort_e implements DS_Sort_i  {
+	
+	public void merge(int[] a, int[]b, int low, int mid, int high){
+		for( int k=low; k<=high;k++)b[k]=a[k];
+		int i=low, j = mid+1;
+		for(int k=low;k<=high;k++){
+			if(i>mid) a[k]=b[j++];
+			else if(j>high) a[k]=b[i++];
+			else if(less(b[j],b[i])) a[k]=b[j++];
+			else a[k]=b[i++];
+		}
+	}
+	public void turnedIterativeMergeSort(int[] a){ //CUTSIZE 추가
+		int N=a.length;
+		int[] b =new int[N];
+		for(int k=1;k<N;k=k+k){
+			for(int i=0;i<N-k;i+=k+k){
+			int low=i;
+			int mid =i+k-1;
+			int high = Math.min(i+k+k-1, N-1);
+			merge(a,b,low,mid,high);
+			}
+		}
+	}	  
+	
+	public int[] sort(int[] array){
+		turnedIterativeMergeSort(array);
 		return array;
 	}
 }
