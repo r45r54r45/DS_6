@@ -11,7 +11,7 @@ public class Execute {
 			rg=new RandomGenerater(); 
 			DS_Sort_i[] sort_algo=new DS_Sort_i[]{
 					new ShellSort1(),new ShellSort2(),new ShellSort3(),new QuickSort(), new RecursiveMergeSort(),
-					new HeapSort(),new IterativeMergeSort(),new TunedRecursiveMergeSort()
+					new ThreeWayQuickSort(),new HeapSort(),new IterativeMergeSort(),new TunedRecursiveMergeSort()
 					}; //... 구현하고 추가하셈 예) {new BubbleSort(),new SelectionSort()....}
 			run(sort_algo);
 		} catch (Exception e) {
