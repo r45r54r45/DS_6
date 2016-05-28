@@ -4,11 +4,11 @@ import no_touch.DS_Sort_e;
 import no_touch.DS_Sort_i;
 
 public class HeapSort extends DS_Sort_e implements DS_Sort_i {
-	private static int[] a;
-    private static int n;
-    private static int left;
-    private static int right;
-    private static int largest;
+    private int[] a;
+    private int n;
+    private int left;
+    private int right;
+    private int largest;
     @Override
 	public int[] sort(int[] array){
 		heapSort(array);
@@ -24,14 +24,14 @@ public class HeapSort extends DS_Sort_e implements DS_Sort_i {
             maxheap(a, 0);
         }
     }
-	public static void buildheap(int []a){
+	public void buildheap(int []a){
         n=a.length-1;
         for(int i=n/2;i>=0;i--){
             maxheap(a,i);
         }
     }
     
-    public static void maxheap(int[] a, int i){ 
+    public void maxheap(int[] a, int i){ 
         left=2*i;
         right=2*i+1;
         if(left <= n && a[left] > a[i]){
@@ -50,9 +50,9 @@ public class HeapSort extends DS_Sort_e implements DS_Sort_i {
         }
     }
     
-    public static void exchange(int i, int j){
+    public void exchange(int i, int j){
         int t=a[i];
         a[i]=a[j];
         a[j]=t; 
-        }
+    }
 }
