@@ -11,15 +11,18 @@ public class InsertionSort  extends DS_Sort_e implements DS_Sort_i {
 		if (low >= high)
 			return;
 		
-		int length = arr.length;
-		for(int i=1; i<length; i++){
-			int tmp = arr[i];
-			
-			int j;
-			for (j = i-1 ; j >=0 && tmp < arr[j]; j--)
-				arr[j+1] = tmp;
-			arr[j+1] = tmp;
-		}
+		for(int index = 1 ; index < arr.length ; index++){
+		      
+		      int temp = arr[index];
+		      int aux = index - 1;
+
+		      while( (aux >= 0) && ( arr[aux] > temp) ) {
+
+		         arr[aux+1] = arr[aux];
+		         aux--;
+		      }
+		      arr[aux + 1] = temp;
+		   }
 		
 		
 	}

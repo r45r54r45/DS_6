@@ -4,11 +4,7 @@ import no_touch.DS_Sort_e;
 import no_touch.DS_Sort_i;
 
 public class IterativeMergeSort extends DS_Sort_e implements DS_Sort_i {
-	@Override
-	public int[] sort(int[] array){
-		MergeSort_Iterative(array);
-		return array;
-	}
+	
 	public void merge(int[] a, int[]b, int low, int mid, int high){
 		for( int k=low; k<=high;k++)b[k]=a[k];
 		int i=low, j = mid+1;
@@ -30,5 +26,10 @@ public class IterativeMergeSort extends DS_Sort_e implements DS_Sort_i {
 			merge(a,b,low,mid,high);
 			}
 		}
-	}	  
+	}
+	@Override
+	public int[] sort(int[] array){
+		MergeSort_Iterative(array);
+		return array;
+	}
 }
