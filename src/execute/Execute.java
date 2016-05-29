@@ -17,11 +17,11 @@ public class Execute {
 //					new TurnedIterativeMergeSort(),
 //					new RadixSort_MSD(),
 					
-					new ShellSort1(),
-					new ShellSort2(),
-					new ShellSort3(),
-					new QuickSort(),
-					new RecursiveMergeSort(),
+//					new ShellSort1(),
+//					new ShellSort2(),
+//					new ShellSort3(),
+//					new QuickSort(),
+//					new RecursiveMergeSort(),
 					
 					new HeapSort(),
 					new IterativeMergeSort(),
