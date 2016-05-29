@@ -14,14 +14,18 @@ public class TunedRecursiveMergeSort extends DS_Sort_e implements DS_Sort_i{
 		sort(a,b,0,a.length-1);
 	}
 	public void insertionSort(int[] a){
-		int N=a.length;
-		for(int i=1;i<N;i++){
-			for(int j=i;j>0;j--){
-				if(less(a[j],a[j-1]))
-					swap(a,j,j-1);
-				else break;
-			}
-		}
+		for(int index = 1 ; index < a.length ; index++){
+		      
+		      int temp = a[index];
+		      int aux = index - 1;
+
+		      while( (aux >= 0) && ( a[aux] > temp) ) {
+
+		         a[aux+1] = a[aux];
+		         aux--;
+		      }
+		      a[aux + 1] = temp;
+		   }
 	}
 	private void sort(int[] a,int[] b, int low, int high){
 		//if(high<=low)return;

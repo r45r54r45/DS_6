@@ -4,6 +4,7 @@ import no_touch.DS_Sort_e;
 import no_touch.DS_Sort_i;
 
 public class RadixSort_LSD extends DS_Sort_e implements DS_Sort_i {
+	private static final int CUTOFF = 10;
 	
 	@Override
 	public int[] sort(int[] array){
