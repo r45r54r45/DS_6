@@ -11,14 +11,20 @@ public class BubbleSort extends DS_Sort_e implements DS_Sort_i {
  
 		if (low >= high)
 			return;
-		
-		int length = arr.length;
-		
-		 for(int i=0; i<length; i++){
-			   for(int j=0; j<(length-i); j++){ // 비교를 하나씩 감소 시키기 위해서 6-i 번 째 까지 해줌
-			    if(arr[j] > arr[j+1])	swap(arr,j,j+1);
-			    }
-			   }
+
+		  boolean swapped = true;
+	      int j = 0;
+	      int tmp;
+	      while (swapped) {
+	            swapped = false;
+	            j++;
+	            for (int i = 0; i < arr.length - j; i++) {                                       
+	                  if (arr[i] > arr[i + 1]) {                          
+	                        swap(arr,i,i+1);
+	                        swapped = true;
+	                  }
+	            }                
+	      }
 		
 	}
 
