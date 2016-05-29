@@ -25,7 +25,7 @@ public class TunedRecursiveMergeSort extends DS_Sort_e implements DS_Sort_i{
 	}
 	private void sort(int[] a,int[] b, int low, int high){
 		//if(high<=low)return;
-		if(high<low +10000000){
+		if(high<low + 1000000000){
 			insertionSort(a);
 			return;
 		}
