@@ -10,7 +10,7 @@ public class Execute {
 		try {
 			rg=new RandomGenerater(); 
 			DS_Sort_i[] sort_algo=new DS_Sort_i[]{
-					new RadixSort_MSD2()/*,new ShellSort2(),new ShellSort3(),new QuickSort(), new RecursiveMergeSort(),
+					new Tuned1QuickSort()/*,new ShellSort2(),new ShellSort3(),new QuickSort(), new RecursiveMergeSort(),
 					new HeapSort(),new IterativeMergeSort(),new TunedRecursiveMergeSort()*/
 					}; //... 구현하고 추가하셈 예) {new BubbleSort(),new SelectionSort()....}
 			run(sort_algo);
