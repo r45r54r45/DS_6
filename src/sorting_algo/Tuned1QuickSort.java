@@ -4,9 +4,10 @@ import no_touch.DS_Sort_e;
 import no_touch.DS_Sort_i;
 
 public class Tuned1QuickSort extends DS_Sort_e implements DS_Sort_i{
-	
+	private static final int cutSize = 8;
 	public void tuned1QuickSort(int[] intArray, int left, int right) {
 	    int size = right - left + 1;
+	    if(3 < size && size <=10){ insertionSort(intArray, left, right);}
 	    if (size <= 3)
 	      manualSort(intArray, left, right);
 	    else {
@@ -67,6 +68,30 @@ public class Tuned1QuickSort extends DS_Sort_e implements DS_Sort_i{
 		        swap(intArray, right - 1, right);
 		    }
 		  }
+		  
+		  private void insertionSort(int[] arr, int low, int high){
+				if (arr == null || arr.length == 0)
+					return;
+		 
+				if (low >= high)
+					return;
+				
+				for(int index = 1 ; index < arr.length ; index++){
+				      
+				      int temp = arr[index];
+				      int aux = index - 1;
+
+				      while( (aux >= 0) && ( arr[aux] > temp) ) {
+
+				         arr[aux+1] = arr[aux];
+				         aux--;
+				      }
+				      arr[aux + 1] = temp;
+				   }
+				
+				
+			}
+		  
 	public int[] sort(int[] intArray) {
 		tuned1QuickSort(intArray, 0, intArray.length - 1);
 		return intArray;
