@@ -28,14 +28,13 @@ public class TunedRecursiveMergeSort extends DS_Sort_e implements DS_Sort_i{
 		   }
 	}
 	private void sort(int[] a,int[] b, int low, int high){
-		//if(high<=low)return;
-		if(high<low + 1000000000){
+		if(high<low + 20){
 			insertionSort(a);
 			return;
 		}
 		int mid=low +(high-low)/2;
-		sort(a,b,low,mid);
-		sort(a,b,mid+1,high);
+		sort(b,a,low,mid);
+		sort(b,a,mid+1,high);
 		if(!less(a[mid+1],a[mid])) return;
 		merge(a,b,low,mid,high);
 	}

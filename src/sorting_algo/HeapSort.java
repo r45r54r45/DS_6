@@ -29,13 +29,11 @@ public class HeapSort extends DS_Sort_e implements DS_Sort_i {
             upheap(a,i);
         }
     }
-    
     public void upheap(int[] a, int i){ 
         left=2*i;
         right=2*i+1;
         if(left <= n && a[left] > a[i])big=left;
         else big=i;
-     
         if(right <= n && a[right] > a[big])big=right;
         if(big!=i){
             swap(a,i,big);

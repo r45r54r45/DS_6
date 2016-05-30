@@ -3,7 +3,7 @@ package sorting_algo;
 import no_touch.DS_Sort_e;
 import no_touch.DS_Sort_i;
 
-public class TurnedIterativeMergeSort extends DS_Sort_e implements DS_Sort_i  {
+public class TunedIterativeMergeSort extends DS_Sort_e implements DS_Sort_i  {
 	 private int N;
 	 
 	public void merge(int[] a, int[]b, int low, int mid, int high){
@@ -47,7 +47,7 @@ public class TurnedIterativeMergeSort extends DS_Sort_e implements DS_Sort_i  {
 		}}
 	
 	public void turnedIterativeMergeSort(int[] a){ 
-		int cut_size = 100;
+		int cut_size = 20;
 		N=a.length;
 		int[] b =new int[N];
 		for(int k=1;k<N-cut_size;k=k+k){

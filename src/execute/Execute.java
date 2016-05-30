@@ -10,8 +10,25 @@ public class Execute {
 		try {
 			rg=new RandomGenerater(); 
 			DS_Sort_i[] sort_algo=new DS_Sort_i[]{
-					new Tuned1QuickSort()/*,new ShellSort2(),new ShellSort3(),new QuickSort(), new RecursiveMergeSort(),
-					new HeapSort(),new IterativeMergeSort(),new TunedRecursiveMergeSort()*/
+//					new BubbleSort(),new SelectionSort(),new InsertionSort(),
+					new ShellSort1(),
+					new ShellSort2(),
+					new ShellSort3(),
+					new HeapSort(),
+					new QuickSort(),
+					new TunedQuickSort(),
+					new ThreeWayQuickSort(),
+					new RecursiveMergeSort(),
+					new TunedRecursiveMergeSort(),
+					new IterativeMergeSort(),
+					new TunedIterativeMergeSort(),
+					new RadixSort_LSD(),
+					new RadixSort_MSD()
+					
+//					new BubbleSort(),new SelectionSort(),new InsertionSort(),
+//					new Tuned1QuickSort(),new TurnedIterativeMergeSort(),new RadixSort_MSD2(),
+//					new ShellSort1(),new ShellSort2(),new ShellSort3(),new QuickSort(),new RecursiveMergeSort(),
+//					new HeapSort(),new ThreeWayQuickSort(),new TunedRecursiveMergeSort(),new IterativeMergeSort(),new RadixSort_LSD()
 					}; //... 구현하고 추가하셈 예) {new BubbleSort(),new SelectionSort()....}
 			run(sort_algo);
 		} catch (Exception e) {

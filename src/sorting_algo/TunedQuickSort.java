@@ -3,11 +3,11 @@ package sorting_algo;
 import no_touch.DS_Sort_e;
 import no_touch.DS_Sort_i;
 
-public class Tuned1QuickSort extends DS_Sort_e implements DS_Sort_i{
+public class TunedQuickSort extends DS_Sort_e implements DS_Sort_i{
 	private static final int cutSize = 8;
 	public void tuned1QuickSort(int[] intArray, int left, int right) {
 	    int size = right - left + 1;
-	    if(3 < size && size <=10){ insertionSort(intArray, left, right);}
+	    if(3 < size && size <=cutSize){ insertionSort(intArray, left, right);}
 	    if (size <= 3)
 	      manualSort(intArray, left, right);
 	    else {
